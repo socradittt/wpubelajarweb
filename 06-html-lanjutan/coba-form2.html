@@ -11,7 +11,36 @@
   <h1>Contoh Input Atribut, & checkbox & radio</h1>
   <form>
     <label for="name">Nama:
-      <input type="text" name="nama" id="nama" placeholder="Masukkan nama" autocomplete="off">
+      <input type="text" name="nama" id="nama" placeholder="Masukkan nama" autocomplete="off" autofocus required>
+      <!-- autocomplete : menghilangkan riwayat pengisian di kolom -->
+      <!-- autofocus : kursor langusung menuju kolom pengisian nama (autofocus hanya bisa disatu halaman/page)-->
+      <!-- required : mewajibkan user untuk mengisi formnya sebelum dikirim (bisa dikasih kesuma input)-->
+      <br>
+
+      <h3>Hobi:</h3>
+      <label for="hobi1">
+        <input type="checkbox" name="hobi1" id="hobi1" value="olahraga"> Olahraga
+      </label>
+
+      <br>
+      <label for="hobi2">
+        <input type="checkbox" name="hobi2" id="hobi2" value="Ngoding"> Ngoding
+      </label>
+      <br>
+
+      <h3>Jenis Kelamin</h3>
+      <label for="pria">
+        <input type="radio" name="Jenis_kelam" id="pria" value="pria" checked> Pria
+      </label>
+      <br>
+      <label for="Wanita">
+        <input type="radio" name="Jenis_kelam" id="Wanita" value="Wanita"> Wanita
+      </label>
+      <!-- name harus dibuat sama agar dianggap satu grup -->
+      <!-- wajib memberikan checked agar mewajibkan user mengisi kategori jenis kelamin -->
+      <br>
+
+      <button type="submit">KIRIM!</button>
 
     </label>
   </form>
