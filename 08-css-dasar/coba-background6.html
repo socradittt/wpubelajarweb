@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coba Background Attachment</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #eee;
+      height: 2000px;
+    }
+
+    .kotak {
+      width: 400px;
+      height: 300px;
+      border: 10px solid #333;
+      margin: auto;
+      background-image: url(image/pohon.png);
+      background-size: 60px;
+      background-repeat: round;
+      overflow: auto;
+      background-attachment: fixed;
+    }
+
+    .content {
+      color: #fff;
+      line-height: 2;
+      background-color: rgb(0 0 0 / 70%)
+    }
+
+    p {
+      margin: 0;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Coba Background Attachment</h1>
+  <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Dolorum, consequatur!</p>
+  <div class="kotak">
+    <div class="content">
+      <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Accusamus, veniam.</p>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat ab laudantium, tenetur quam, assumenda eligendi
+        dignissimos corporis adipisci natus asperiores voluptatibus commodi illum, alias illo repellat esse nulla enim
+        cupiditate.</p>
+      <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Similique et dignissimos a optio, ad sint repudiandae
+        consectetur rerum sed ab.</p>
+      <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Culpa blanditiis quis vel praesentium quaerat quidem
+        sapiente ea voluptates, doloribus magnam impedit quae libero illo ex aut autem ut eaque tempora.</p>
+    </div>
+  </div>
+</body>
+
+</html>
