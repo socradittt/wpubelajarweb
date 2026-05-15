@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Latihan Pseudo-classes Part 1</title>
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    /* HISTORIC STATES */
+    .link-demo:link {
+      color: royalblue;
+      /* link yang belum dikunjungi */
+    }
+
+    .link-demo:visited {
+      color: salmon;
+      /* Ketika link di klik warna tulisan akan berubah */
+    }
+
+    /* INTERACTIVE STATES */
+    .btn {
+      background-color: orange;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 20px;
+      /*jarak antara tulisan dgn dinding atas-bawah 10px kiri-kanan 20px*/
+      cursor: pointer;
+      /*Mengubah cursor menjadi pointer ketika di dalam elemen atau menyorot kotak/padding*/
+    }
+
+    .btn:hover {
+      background-color: darkorange;
+      /* membuat warna berubah ketika cursor masuk ke dalam kotak */
+    }
+
+    .btn:active {
+      background-color: orangered;
+      transform: scale(0.95);
+      /* membuat elemen ketika di klik akan mengecil  */
+    }
+
+    /* input[type=text]{
+    } ----> Spesifik ke 1 elemen*/
+
+    input:focus {
+      background-color: lightyellow;
+      border: 2px solid orange;
+      outline: none;
+      /* Outline: none --> garis di pinggir menjadi hilang*/
+      /* Membuat kotak pengisian menjadi fokus */
+    }
+
+    .target-box {
+      border: 1px solid #ccc;
+      padding: 20px;
+      margin-top: 10px;
+    }
+
+    .target-box:target {
+      background-color: lightgreen;
+      border: 2px solid green;
+      color: darkgreen;
+      font-weight: bold;
+      /* Membuat elemen kotak menjadi beraksi (interaktifitas) ketika kotak di klik */
+    }
+
+    .input:disabled {
+      background-color: #eee;
+      cursor: not-allowed;
+    }
+
+    input:enabled {
+      border: 1px solid #aaa;
+    }
+
+    input[type="checkbox"]:checked+label {
+      /* pilih input yang typenya checkbox ketika dia di check ambil elemen label yang disebelahnya */
+      color: green;
+      font-weight: bold;
+      text-decoration: line-through;
+    }
+
+    .input-email {
+      border: 2px solid #ccc;
+      padding: 5px;
+    }
+
+    .input-email:invalid {
+      /* Membuat kolom email menjadi merah ketika salah memasukkan format */
+      border-color: red;
+      background-color: #ffe6e6;
+    }
+
+    .input-email:valid {
+      /* Membuat kolom email menjadi hijau ketika sudah benar memasukkan format */
+      border-color: green;
+      background-color: #e6e6e6;
+    }
+
+
+    ul {
+      list-style: none;
+      /* list-style: none --> menghilangkan titik2 didepan text */
+      padding: 0px;
+      /* padding 0px --> Membuat text mepet ke kiri */
+    }
+
+    li {
+      padding: 10px;
+      border-bottom: 1px solid #ddd;
+      /* border-bottom: 1px --> membuat garis dibawah text */
+    }
+
+    /* INDEX & Occurrence  */
+
+    li:first-child {
+      /* mentarget li yang pertama */
+      background-color: #333;
+      color: white;
+    }
+
+    li:nth-child(even) {
+      /* Mentarget li yang genap */
+      background-color: salmon;
+    }
+
+    li:last-child {
+      /* Mentarget li yang terakhir */
+      background-color: #eee;
+    }
+
+    li:nth-child(3) {
+      /* Mentarget li spesifik */
+      background-color: lightblue;
+    }
+
+    /* EMPTY STATE */
+
+    .kotak-kosong {
+      width: 100px;
+      height: 5opx;
+      background-color: red;
+      margin-bottom: 20px;
+      display: none;
+    }
+
+    .kotak-kosong:empty {
+      display: block;
+      background-color: salmon;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Playground Pseudo-classes</h1>
+
+  <h2>1. Historic States (:link, :visited)</h2>
+  <a href="https://google.com" class="link-demo" target="_blank">Google (Mungkin Visited)</a> |
+  <a href="https://website-asal-asalan-123.com" class="link-demo" target="_blank">Link Asal (Pasti Link)</a>
+
+  <h2>2. Interactive States (:hover, :active, :focus, :target)</h2>
+
+  <button class="btn">Hover & Click Me!</button>
+  <br><br>
+
+  <input type="text" placeholder="Klik saya (Focus)">
+  <br><br>
+
+  <p>Navigasi Target:</p>
+  <a href="#kotak1" class="btn">Buka Kotak 1</a>
+  <a href="#kotak2" class="btn">Buka Kotak 2</a>
+
+  <div id="kotak1" class="target-box">
+    Ini KOTAK 1 (Klik tombol di atas agar saya jadi :target)
+  </div>
+  <div id="kotak2" class="target-box">
+    Ini KOTAK 2 (Klik tombol di atas agar saya jadi :target)
+  </div>
+
+
+  <h2>3. Form States (:disabled, :checked)</h2>
+
+  <input type="text" disabled placeholder="Saya Disabled">
+  <input type="text" placeholder="Saya Enabled">
+  <br><br>
+
+  <input type="checkbox" id="tugas1">
+  <label for="tugas1">Belajar HTML</label>
+  <br>
+  <input type="checkbox" id="tugas2" checked>
+  <label for="tugas2">Belajar CSS (Checked)</label>
+
+
+  <h2>4. Validation States (:valid, :invalid)</h2>
+  <p>Coba ketik email yang salah (tanpa @), lalu ketik email yang benar.</p>
+  <form>
+    <input type="email" class="input-email" placeholder="Masukkan email...">
+  </form>
+
+
+  <h2>5. Index & Occurrence (:nth-child dll)</h2>
+
+  <ul>
+    <li>Item 1 (First Child - Hitam)</li>
+    <li>Item 2 (Genap - Merah)</li>
+    <li>Item 3 (Ke-3 - Garis Bawah)</li>
+    <li>Item 4 (Genap - Merah)</li>
+    <li>Item 5 (Biasa)</li>
+    <li>Item 6 (Last Child - Abu)</li>
+  </ul>
+
+  <h3>Empty State (:empty)</h3>
+  <p>Kotak pink di bawah ini muncul karena elemennya KOSONG.</p>
+  <div class="kotak-kosong"></div>
+
+</body>
+
+</html>
