@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Latihan Pseudo-elements Part 1</title>\\
+  <style>
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #f9f9f9;
+    }
+
+    .link-download {
+      text-decoration: none;
+      /* Menghilangkan garis bawah pada link */
+      color: #333;
+      /* Memberikan warna pada link */
+      font-weight: bold;
+      /* Membuat teks link menjadi tebal */
+      background-color: #e0e0e0;
+      /* Memberikan latar belakang pada link */
+      padding: 10px;
+      /* Memberikan ruang di dalam link */
+      border-radius: 5px;
+      /* Membuat sudut link menjadi melengkung */
+    }
+
+    .link-download::before {
+      content: "📥 ";
+      /* Menambahkan ikon download sebelum teks link */
+    }
+
+    .materi-baru::after {
+      content: " (BARU)";
+      /* Menambahkan teks "BARU" setelah teks link */
+      color: red;
+      /* Memberikan warna merah pada teks "BARU" */
+      font-size: 0.5em;
+      /* Membuat ukuran teks "BARU" menjadi lebih kecil */
+      font-weight: bold;
+      /* Menambahkan teks "BARU" setelah teks link */
+    }
+
+    .kutipan-keren {
+      font-style: italic;
+      /* Membuat teks menjadi miring */
+      color: #555;
+      /* Memberikan warna pada teks */
+      background-color: white;
+      /* Memberikan latar belakang putih untuk kontras yang lebih baik */
+      padding: 15px;
+      /* Memberikan ruang di dalam kutipan */
+      border-left: 4px solid darkorange;
+      /* Memberikan garis vertikal di sebelah kiri kutipan untuk menambah estetika */
+      display: inline-block;
+      /* Membuat kutipan menjadi elemen inline-block agar tidak memenuhi seluruh lebar */
+    }
+
+    .kutipan-keren::before,
+    .kutipan-keren::after {
+      /* Menggunakan grouping selector untuk menggabungkan sebelum dan sesudah */
+      content: "❝ ";
+      /* link simnol https://www.compart.com/en/unicode */
+      font-size: 1.5em;
+      color: darkorange;
+    }
+
+    /* .kutipan-keren::after {
+      content: "❞";
+      /* link simnol https://www.compart.com/en/unicode 
+      font-size: 1.5em;
+      color: darkorange;
+      <-- Sintak yang sama bisa di gabungkan dengan elemen di atasnya dengan menggunakan grouping selector
+    }
+     */
+
+    /* Grooping selector untuk menggabungkan sebelum dan sesudah */
+    .kutipan-keren::after {
+      content: " ❞";
+    }
+
+    .artikel-wpu {
+      line-height: 1.6;
+      /* jarak antar baris */
+      max-width: 600px;
+      /* Membatasi lebar paragraf agar lebih mudah dibaca */
+      background-color: white;
+      /* Memberikan latar belakang putih untuk kontras yang lebih baik */
+      padding: 20px;
+      /* Memberikan ruang di dalam paragraf */
+      border-radius: 5px;
+      /* Membuat sudut paragraf menjadi melengkung */
+      border-left: 5px solid darkorange;
+      /* Memberikan garis vertikal di sebelah kiri paragraf untuk menambah estetika */
+    }
+
+    .artikel-wpu {
+      line-height: 1.6;
+      /* jarak antar baris */
+      max-width: 600px;
+      /* Membatasi lebar paragraf agar lebih mudah dibaca */
+      background-color: white;
+      /* Memberikan latar belakang putih untuk kontras yang lebih baik */
+      padding: 20px;
+      /* Memberikan ruang/ jarak di dalam paragraf */
+      border-radius: 5px;
+      /* Membuat sudut paragraf menjadi melengkung */
+      border-left: 5px solid darkorange;
+      /* Memberikan garis vertikal di sebelah kiri paragraf untuk menambah estetika */
+    }
+
+    .artikel-wpu::first-letter {
+      font-size: 2.5em;
+      /* Membuat huruf pertama menjadi lebih besar */
+      color: darkorange;
+      /* Memberikan warna pada huruf pertama */
+      font-weight: bold;
+      /* Membuat huruf pertama menjadi tebal */
+    }
+
+    .artikel-wpu::first-line {
+      font-weight: bold;
+      /* Membuat baris pertama menjadi tebal */
+      color: #555;
+      /* Memberikan warna pada baris pertama */
+      letter-spacing: 5px;
+      /* Memberikan jarak antar huruf pada baris pertama */
+    }
+
+    .artikel-wpu::selection {
+      background-color: darkorange;
+      /* Memberikan warna latar belakang pada teks yang disorot */
+      color: white;
+      /* Memberikan warna pada teks yang disorot */
+    }
+
+    .input-pencarian {
+      padding: 12px;
+      /* Memberikan ruang di dalam input */
+      border: 2px solid #ccc;
+      /* Memberikan border pada input */
+      border-radius: 5px;
+      /* Membuat sudut input menjadi melengkung */
+      width: 300px;
+      /* Membatasi lebar input */
+    }
+
+    .input-pencarian:focus {
+      border-color: hsl(33, 100%, 55%);
+      /* Mengubah warna border ketika input dalam keadaan fokus */
+      outline: none;
+      /* Menghilangkan garis biru yang muncul ketika input dalam keadaan fokus */
+    }
+
+    .input-pencarian::placeholder {
+      color: #aaa;
+      /* Memberikan warna pada teks placeholder */
+      font-style: italic;
+      /* Membuat teks placeholder menjadi miring */
+      letter-spacing: 1px;
+      /* Memberikan jarak antar huruf pada teks placeholder */
+    }
+
+    .input-pencarian:focus::placeholder {
+      color: transparent;
+      /* Menghilangkan teks placeholder ketika input dalam keadaan fokus */
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Playground Pseudo-elements</h1>
+
+  <h2>1. Konten Tambahan (::before, ::after)</h2>
+
+  <a href="#" class="link-download">Download Source Code</a>
+  <br><br>
+
+  <ul>
+    <li>HTML Dasar</li>
+    <li>CSS Layouting <span class="materi-baru"></span></li>
+    <li>JavaScript DOM</li>
+  </ul>
+
+  <div class="kutipan-keren">
+    Ngoding itu mudah, yang susah itu cari bug-nya kalau lupa titik koma.
+  </div>
+
+
+  <h2>2. Tipografi dan Teks (::first-letter, ::first-line, ::selection)</h2>
+
+  <p class="artikel-wpu">
+    Halo Pasukan Titik Koma! Selamat datang di seri tutorial WPU. Pada bagian ini, kita akan belajar bagaimana
+    memanipulasi tampilan teks menggunakan pseudo-elements tanpa perlu menambah tag span di HTML. Coba kecilkan jendela
+    browser Anda dan lihat bagaimana baris pertama secara otomatis menyesuaikan efek tebalnya. Jangan lupa, coba blok
+    (sorot) paragraf ini untuk melihat efek dari pseudo-element selection.
+  </p>
+
+
+  <h2>3. Formulir (::placeholder)</h2>
+
+  <p>Coba klik input di bawah ini, perhatikan gaya teks placeholder-nya dan bagaimana ia menghilang saat kursor aktif.
+  </p>
+  <form>
+    <input type="text" class="input-pencarian" placeholder="Cari video tutorial WPU di sini...">
+  </form>
+
+</body>
+
+</html>
