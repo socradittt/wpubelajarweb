@@ -33,11 +33,14 @@
 
     .gallery {
       text-align: center;
+      /* Membuat gambar berada di tengah */
     }
 
     .gallery img {
       width: 100px;
+      /* Mengatur lebar gambar */
       cursor: pointer;
+      /* Mengubah cursor menjadi pointer ketika menyorot gambar */
       transition: opacity 0.3s;
     }
 
@@ -53,17 +56,22 @@
     li {
       background-color: white;
       outline: 1px solid #ddd;
+      /* outline: 1px solid #ddd --> Membuat garis di pinggir elemen */
       color: #333
     }
 
     .badge {
       background-color: red;
+      /* Membuat badge dengan background merah */
       color: white;
+      /* Membuat warna tulisan di dalam badge menjadi putih */
       font-size: 0.8em;
+      /* Mengatur ukuran font di dalam badge menjadi 80% dari ukuran font normal */
     }
 
     /* :has() (The Parent Selector) = Meyeleksi elemen induk (Parent) JIKA dia memilih anak (Child) tertentu di dalamnya */
     li:has(.badge) {
+      /* Menyeleksi <li> yang memiliki anak dengan kelas .badge */
       background-color: rgb(255, 119, 119);
       font-weight: bold;
     }
