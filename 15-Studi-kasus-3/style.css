@@ -78,6 +78,7 @@ main {
   text-align: center;
   background-image: linear-gradient(to bottom, #1e293b, #0f172a);
   padding: 100px 20px;
+  border-radius: 8px;
 }
 
 #hero h2 {
