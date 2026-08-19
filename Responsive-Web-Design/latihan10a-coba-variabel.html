@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Coba Variable</title>
+    <style>
+      :root {
+        --brand-color: rgb(0, 160, 160);
+      }
+
+      main {
+        font-size: 2rem;
+        --favorite-food: tomato;
+      }
+
+      h1 {
+        color: var(--brand-color);
+      }
+
+      p {
+        color: var(--brand-color);
+      }
+
+      a {
+        color: var(--favorite-food);
+        font-family: var(--brand-font, sans-serif);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Coba CSS Variables</h1>
+    <p>
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui dignissimos
+      sint ipsum optio in facilis esse iste animi, rem delectus asperiores
+      inventore fugit sunt nemo. Iure fugiat et quibusdam quas.
+    </p>
+    <main>
+      <section>
+        <a href="#">Hello Din!</a>
+      </section>
+    </main>
+  </body>
+</html>
